@@ -56,23 +56,19 @@ function print_title()  {
     ?>
   </ol>
   <a href ="create.php">create</a>
-  <?php if(isset($_GET['id'])) {  ?>
-  <!-- isset : 인자로 들어오는 값이 있는지 없는지 체크, 변수가 설정되었는가?? 
-  여기서  -->
-    <a href ="update.php?id=<?=$_GET['id']?>">update</a>
-    <form action="delete_process.php" method = "post">
-      <input type = "hidden" name = "id" value="<?=$_GET['id']?>">
-      <input type = "submit" value="delete">
-    </form>
-  <?php } ?>
-  <h2>
-    <?php 
-      print_title();
-    ?>  <!-- 제목 표현 코드 --> 
-  </h2>
-  <?php
-  print_description();
-  ?>
+  <form action = "create_process.php" method="post">
+    <p>
+      <input type = "text" name = "title" placeholder="Title">
+    </p>
+    <p>
+      <textarea name = "description" placeholder = "Description"></textarea> 
+      <!-- 본문 -->
+    </p>
+    <p>
+      <input type= "submit" >
+    </p>  
+  </form>
+
   
 </body>
 </html>

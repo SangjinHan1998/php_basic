@@ -60,10 +60,6 @@ function print_title()  {
   <!-- isset : 인자로 들어오는 값이 있는지 없는지 체크, 변수가 설정되었는가?? 
   여기서  -->
     <a href ="update.php?id=<?=$_GET['id']?>">update</a>
-    <form action="delete_process.php" method = "post">
-      <input type = "hidden" name = "id" value="<?=$_GET['id']?>">
-      <input type = "submit" value="delete">
-    </form>
   <?php } ?>
   <h2>
     <?php 
@@ -73,6 +69,21 @@ function print_title()  {
   <?php
   print_description();
   ?>
+
+  <form action = "update_process.php" method="post">
+    <input type="hidden" name="old_title" value="<?=$_GET['id']?>">
+    <p>
+      <input type = "text" name = "title" placeholder="Title" value="<?php print_title(); ?>">
+    </p>
+    <p>
+      <textarea name = "description" placeholder = "Description">
+        <?php print_description(); ?></textarea> 
+      <!-- 본문 -->
+    </p>
+    <p>
+      <input type= "submit" >
+    </p>  
+  </form>
   
 </body>
 </html>
